@@ -16,13 +16,12 @@ enum infotype {
 };
 
 class InfoManager {
-    unordered_map<uint16_t, vector<Tag>> tags;
-    unordered_map<uint16_t, vector<Param>> params; 
-    hash<string>& hasher; //this should be central, not per instance, as the hashes should be consistent
+    unordered_map<string, vector<Tag>> tags;
+    unordered_map<string, vector<Param>> params; 
 
     public:
-    InfoManager(hash<string> &h);
-    ~InfoManager();
+    InfoManager() = default;
+    ~InfoManager() = default;
     bool insertTag(string label, string value="");
     bool removeTag(string label);
     string getTagValue(string label);
